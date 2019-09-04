@@ -25,6 +25,7 @@ const alterFile = async (filepath) => {
 const getFile = async (filepath) => {
   return readFile(filepath)
     .then(data => {
+      console.log(data)
       const content = data.toString()
       events.emit('read', content);
       return content;
@@ -71,6 +72,8 @@ const saveFile = async (filepath, fileContent) => {
     })
 }
 
-let testFilePath = './test-content.txt'
-alterFile(testFilePath);
+// let testFilePath = './test-content.txt'
+// alterFile(testFilePath);
+
+module.exports = { saveFile, lowerCaseFile, upperCaseFile, getFile, alterFile };
 
